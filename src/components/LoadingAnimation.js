@@ -20,14 +20,18 @@ const LoadingAnimation = (props) => {
         clearInterval(interval);
       }
       
-    } ,100);
+    } ,35);
     return () => clearInterval(interval);
   }, []);
 
   return(
     <div>
-      <p>Loading....</p>
-      <p className="percentage">{ counter }%</p>
+    {
+      counter < 100 ?
+      counter
+      : 'Complete'
+    }
+      
     </div>
 
   );
