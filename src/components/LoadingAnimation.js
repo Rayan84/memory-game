@@ -27,9 +27,7 @@ const LoadingAnimation = (props) => {
   return(
     <div>
     {
-      counter < 100 ?
-      counter
-      : 'Complete'
+      counter < 100 ? counter : 'Complete'
     }
       
     </div>
