@@ -27,16 +27,12 @@ const LoadingAnimation = (props) => {
   return(
     <div>
     {
-      counter < 100 ? `${counter} %` : <div>
+      counter < 100 ? <h1>{`${counter} %`}</h1> : <div>
 
       
       <h1>Memory Game</h1>
       <p>Choose a level</p>
-      <ul>
-        <li className='cursor-pointer'>Easy</li>
-        <li className='cursor-pointer'>Meduim</li>
-        <li className='cursor-pointer'>Hard</li>
-      </ul>
+
     </div>
     }
       

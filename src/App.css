@@ -6,6 +6,19 @@
   cursor: pointer;
 }
 
+.list-style-none {
+  list-style: none;
+}
+
+.levels {
+  color: red;
+}
+
+.levels:hover {
+  color: white;
+  font-weight: bold;
+}
+
 cursor:hover {
  color: red;
 }
