@@ -34,8 +34,8 @@ const LoadingAnimation = (props) => {
       <p>Choose a level</p>
       <ul>
         <li className='cursor-pointer'>Easy</li>
-        <li>Meduim</li>
-        <li>Hard</li>
+        <li className='cursor-pointer'>Meduim</li>
+        <li className='cursor-pointer'>Hard</li>
       </ul>
     </div>
     }
