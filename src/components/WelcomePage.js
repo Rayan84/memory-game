@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import Nav from "./Nav";
 
-const LoadingAnimation = (props) => {
+const WelcomePage = () => {
   const [counter, setCounter] = useState(0);
   useEffect(() => {
     if(counter < 100){
@@ -32,6 +33,7 @@ const LoadingAnimation = (props) => {
       
       <h1>Memory Game</h1>
       <p>Choose a level</p>
+      <Nav />
 
     </div>
     }
@@ -41,4 +43,4 @@ const LoadingAnimation = (props) => {
   );
 }
 
-export default LoadingAnimation;
+export default WelcomePage;

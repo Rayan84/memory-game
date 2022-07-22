@@ -1,37 +1,44 @@
 import React from "react";
-import 
+import Easy from "./Easy";
+import Medium from "./Medium";
+import Hard from "./Hard";
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
   Link,
-  userParams
+  Route,
+  NavLink,
 } from 'react-router-dom';
 
 const Nav = () => {
   return(
-    <Router>
-      <div>
-        <h2>Choose a level</h2>
-        <ul>
-          <li className='cursor-pointer list-style-none levels'>
-            <Link to='/easy'>Easy</Link>
-          </li>
-          <li className='cursor-pointer list-style-none levels'>
-            <Link to='/medium'>Medium</Link>
-          </li>
-          <li className='cursor-pointer list-style-none levels'>
-            <Link to='/hard'>Hard</Link>
-          </li>
-      </ul>
-      </div>
+    <div>
+      <Router>
 
+      <div>
+        <ul>
+          <li className='list-style-none'>
+            <Link className='levels' to='/easy'>Easy</Link>
+          </li>
+          <li className='list-style-none'>
+            <NavLink className='levels' to='/medium'>Medium</NavLink>
+          </li>
+          <li className='list-style-none'>
+            <NavLink className='levels' to='/hard'>Hard</NavLink>
+          </li>
+        </ul>
+      </div>
       <Routes>
-        <Route path="/easy" element={<Easy />}/>
-        <Route path="/medium" element={<Medium />}/>
-        <Route path="/hard" element={<Hard />}/>
+        <Route path="/easy" element={<Easy />} />
+        <Route path="/medium" element={<Medium />} />
+        <Route path="/hard" element={<Hard />} />
+
       </Routes>
     </Router>
+    </div>
+    
+    
+
 
   )
 }
