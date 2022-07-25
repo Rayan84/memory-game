@@ -15,6 +15,12 @@
   grid-template-columns: repeat(3, 200px);
 }
 
+.square-container {
+  margin: 15px;
+  border: #28488a solid 1px;
+  border-radius: 8px;
+}
+
 .levels {
   color: red;
   text-decoration: none;
@@ -25,8 +31,8 @@
   font-weight: bold;
 }
 
-cursor:hover {
- color: red;
+.cursor-pointer {
+ cursor: pointer;
 }
 
 .App-logo {

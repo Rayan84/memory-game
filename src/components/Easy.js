@@ -30,7 +30,7 @@ const Easy = () => {
       <div className="grid">
         { squares.map((square) => (
           <div>
-            <div>{square}</div>
+            <div className="square-container cursor-pointer">{square}</div>
           </div>
          ))}
       </div>
