@@ -15,11 +15,18 @@
   grid-template-columns: repeat(3, 200px);
 }
 
-.square-container {
+.square {
   margin: 15px;
   border: #28488a solid 1px;
   border-radius: 8px;
+  background-image: url(./components/resources/images/cover.jpg);
+  height: 150px;
 }
+
+.square:hover {
+  border: white solid 1px;
+}
+
 
 .levels {
   color: red;
