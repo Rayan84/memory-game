@@ -27,15 +27,13 @@ const Easy = () => {
     <div>
       <p>Easy</p>
      
-      <table>
-        <tbody>
+      <div className="grid">
         { squares.map((square) => (
-          <tr key={square}>
-        <td>{square}</td>
-        </tr>
+          <div>
+            <div>{square}</div>
+          </div>
          ))}
-        </tbody>
-      </table>
+      </div>
     </div>
   )
 }

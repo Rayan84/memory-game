@@ -10,6 +10,11 @@
   list-style: none;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+}
+
 .levels {
   color: red;
   text-decoration: none;
