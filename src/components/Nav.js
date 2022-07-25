@@ -17,13 +17,13 @@ const Nav = () => {
 
       <div>
         <ul>
-          <li className='list-style-none'>
+          <li className='list-style-none levels-li'>
             <Link className='levels' to='/easy'>Easy</Link>
           </li>
-          <li className='list-style-none'>
+          <li className='list-style-none levels-li'>
             <NavLink className='levels' to='/medium'>Medium</NavLink>
           </li>
-          <li className='list-style-none'>
+          <li className='list-style-none levels-li'>
             <NavLink className='levels' to='/hard'>Hard</NavLink>
           </li>
         </ul>

@@ -2,8 +2,8 @@
   text-align: center;
 }
 
-.cursor-pointer {
-  cursor: pointer;
+.levels-li {
+  padding-top: 15px;
 }
 
 .list-style-none {
@@ -12,6 +12,7 @@
 
 .levels {
   color: red;
+  text-decoration: none;
 }
 
 .levels:hover {
