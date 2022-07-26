@@ -19,8 +19,95 @@
   margin: 15px;
   border: #28488a solid 1px;
   border-radius: 8px;
-  background-image: url(./components/resources/images/cover.jpg);
   height: 150px;
+}
+
+.square-covered {
+  background-image: url(./components/resources/images/cover.jpg);
+}
+
+.square-a-background,
+.square-a1-background {
+  background-image: url(./components//resources/images/a.jpeg);
+}
+
+.square-b-background,
+.square-b1-background {
+  background-image: url(./components//resources/images/b.png);
+}
+
+.square-c-background,
+.square-c1-background {
+  background-image: url(./components//resources/images/c.jpg);
+}
+
+.square-d-background,
+.square-d1-background {
+  background-image: url(./components//resources/images/d.png);
+}
+
+.square-e-background,
+.square-e1-background {
+  background-image: url(./components//resources/images/e.png);
+}
+
+.square-f-background,
+.square-f1-background {
+  background-image: url(./components//resources/images/f.png);
+}
+
+.square-g-background,
+.square-g1-background {
+  background-image: url(./components//resources/images/g.jpg);
+}
+.square-h-background,
+.square-h1-background {
+  background-image: url(./components//resources/images/h.jpeg);
+}
+
+.square-i-background,
+.square-i1-background {
+  background-image: url(./components//resources/images/a.jpeg);
+}
+
+.square-j-background,
+.square-j1-background {
+  background-image: url(./components//resources/images/j.jpeg);
+}
+
+.square-k-background,
+.square-k1-background {
+  background-image: url(./components//resources/images/k.png);
+}
+
+.square-l-background,
+.square-l1-background {
+  background-image: url(./components//resources/images/l.png);
+}
+
+.square-m-background,
+.square-m1-background {
+  background-image: url(./components//resources/images/m.jpg);
+}
+
+.square-n-background,
+.square-n1-background {
+  background-image: url(./components//resources/images/n.jpg);
+}
+
+.square-o-background,
+.square-o1-background {
+  background-image: url(./components//resources/images/o.png);
+}
+
+.square-p-background,
+.square-p1-background {
+  background-image: url(./components//resources/images/p.svg);
+}
+
+.square-q-background,
+.square-q1-background {
+  background-image: url(./components//resources/images/q.png);
 }
 
 .square:hover {

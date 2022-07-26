@@ -1,6 +1,5 @@
-import { element } from "prop-types";
 import React, { useEffect, useState } from "react";
-import a from './resources/images/a.jpeg';
+
 
 const Easy = () => {
   const [squares, setSquares] = useState([{visible: 'false', id: 100, solved: false}]);
@@ -43,8 +42,12 @@ const Easy = () => {
           <div key={square.id}>
             {console.log('==================Rendering=======================')}
             {square.visible === 'true'?
-             <div className="square cursor-pointer" style={{ backgroundImage: `url(${a}` }} onClick={() => {flip(square.id)}}></div> :
-             <div className="square cursor-pointer" onClick={() => {flip(square.id)}}></div>
+             <div className={'square cursor-pointer ' + `square-${square.id}-background`} style={{
+              backgroundPosition: 'center',
+              backgroundSize: 'contain'}} onClick={() => {flip(square.id)
+              }}>
+              </div> :
+             <div className="square cursor-pointer square-covered" onClick={() => {flip(square.id)}}></div>
             }
             {console.log(square)}
             {console.log(square.id)}
