@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import Finished from "./Finished";
 
 let pending = false;
 let first = null;
+let unSolvedSquares = 12;
 const Easy = () => {
   const [squares, setSquares] = useState([{visible: 'false', id: 100, solved: false}]);
   const [disableClick, setDisableClick] = useState('false');
+  const [finished, setFinished] = useState({status: false});
   let tempSquares = [];
   const images = ['a', 'a1', 'b', 'b1', 'c', 'c1', 'd', 'd1', 'e', 'e1', 'f', 'f1'];
 
@@ -18,20 +21,25 @@ const Easy = () => {
       console.log(`index is: ${changedSquareIndex}`);
     
     if (pending == true) {
-      console.log('pending is true');
-      console.log(`first is ${first}`);
-      console.log(`second is ${number}`);
+      // console.log('pending is true');
+      // console.log(`first is ${first}`);
+      // console.log(`second is ${number}`);
       
       if (first === `${number}1` || `${first}1` === number){
         console.log('============= Match ===============')
+        unSolvedSquares = unSolvedSquares - 2;
+        console.log(`unsolved squares: ${unSolvedSquares}`);
         setTimeout(() => {
-        squares[squares.findIndex((element) => element.id === first)].solved = 'true';
-        squares[squares.findIndex((element) => element.id === number)].solved = 'true';
-        setDisableClick(disableClick => 'false');
-
-        setSquares(squares => [...squares]);
-
-        console.log(squares);
+          if(unSolvedSquares == 0){
+            finished.status = true;
+            setFinished(finished => finished);
+            console.log(`Finished: ${finished.status}`);
+          }
+            squares[squares.findIndex((element) => element.id === first)].solved = 'true';
+            squares[squares.findIndex((element) => element.id === number)].solved = 'true';
+            setDisableClick(disableClick => 'false');
+            setSquares(squares => [...squares]);
+            console.log(squares);        
         }, 1500)
       }else {
         
@@ -63,8 +71,8 @@ const Easy = () => {
     setSquares(squares => [...squares]);
     console.log(squares);
   };
-
-  useEffect(() => {
+  
+   useEffect(() => {
     for (let i = 0; i < 12; i++){
       let random = Math.floor(Math.random() * images.length);
       
@@ -73,19 +81,22 @@ const Easy = () => {
       }
       images.splice(random, 1);
     }
-
+   console.log('useEffect...');
    setSquares(squares => tempSquares);
   }, []);
 
   return(
     <div>
-      <p>Easy</p>
+   
       <div className="grid">
-        { squares.map((square) => (
+        {finished.status == true ? <Finished />
+
+        :squares.map((square) => (
           <div key={square.id}>
             {console.log('==================Rendering=======================')}
 
-            {square.solved === 'true' ? <div className={'square solved ' + `square-${square.id}-background`} style={{
+            {
+              square.solved === 'true' ? <div className={'square solved ' + `square-${square.id}-background`} style={{
               backgroundPosition: 'center',
               backgroundSize: 'contain'}}>
               </div>
