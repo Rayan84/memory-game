@@ -4,6 +4,7 @@ let pending = false;
 let first = null;
 const Easy = () => {
   const [squares, setSquares] = useState([{visible: 'false', id: 100, solved: false}]);
+  const [disableClick, setDisableClick] = useState('false');
   let tempSquares = [];
   const images = ['a', 'a1', 'b', 'b1', 'c', 'c1', 'd', 'd1', 'e', 'e1', 'f', 'f1'];
 
@@ -26,18 +27,26 @@ const Easy = () => {
         setTimeout(() => {
         squares[squares.findIndex((element) => element.id === first)].solved = 'true';
         squares[squares.findIndex((element) => element.id === number)].solved = 'true';
+        setDisableClick(disableClick => 'false');
+
         setSquares(squares => [...squares]);
+
         console.log(squares);
         }, 1500)
       }else {
+        
         setTimeout(() => {
           console.log('Timeout running...');
           squares[squares.findIndex((element) => element.id === first)].visible = 'false';
           squares[squares.findIndex((element) => element.id === number)].visible = 'false';
+          setDisableClick(disableClick => 'false')
+          console.log(`disableClick set to: ${disableClick}`);
           setSquares(squares => [...squares]);
           console.log(squares);
-        }, 2000);
+        }, 1500);
       }
+      setDisableClick(disableClick => 'true');
+      console.log(`disableClick set to: ${disableClick}`);
     }
 
     if (pending === false){
@@ -58,15 +67,11 @@ const Easy = () => {
   useEffect(() => {
     for (let i = 0; i < 12; i++){
       let random = Math.floor(Math.random() * images.length);
-      console.log(`random number is: ${random}`);
       
       if(images[random] !== undefined){
         tempSquares.push({id: images[random], visible: 'false', solved: 'false'});
-        console.log(`squares: ${tempSquares}`);
       }
       images.splice(random, 1);
-      console.log(`Images left: ${images}`);
-      console.log(`i =  ${i}`);      
     }
 
    setSquares(squares => tempSquares);
@@ -80,16 +85,25 @@ const Easy = () => {
           <div key={square.id}>
             {console.log('==================Rendering=======================')}
 
-            {square.solved === 'true' ? <div className={'square solved' + `square-${square.id}-background`} style={{
-                backgroundPosition: 'center',
-                backgroundSize: 'contain'}}></div>
-             : square.visible === 'true' && square.solved === 'false'?
+            {square.solved === 'true' ? <div className={'square solved ' + `square-${square.id}-background`} style={{
+              backgroundPosition: 'center',
+              backgroundSize: 'contain'}}>
+              </div>
+             : square.visible === 'true' && disableClick === 'false' ?
              <div className={'square cursor-pointer ' + `square-${square.id}-background`} style={{
               backgroundPosition: 'center',
               backgroundSize: 'contain'}} onClick={() => {flip(square.id)
               }}>
-              </div> :
-             <div className="square cursor-pointer square-covered" onClick={() => {flip(square.id)}}></div>
+              </div>
+              : square.visible === 'true' && disableClick === 'true' ?
+              <div className={'square ' + `square-${square.id}-background`} style={{
+               backgroundPosition: 'center',
+               backgroundSize: 'contain'}}>
+               </div>
+               : square.visible === 'false' && disableClick === 'true' ?
+               <div className={'square square-covered '}>
+                </div>
+              : <div className="square cursor-pointer square-covered" onClick={() => {flip(square.id)}}></div>
             }
           </div>
          ))}
