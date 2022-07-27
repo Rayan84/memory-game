@@ -101,10 +101,9 @@ const Easy = () => {
               backgroundSize: 'contain'}}>
               </div>
              : square.visible === 'true' && disableClick === 'false' ?
-             <div className={'square cursor-pointer ' + `square-${square.id}-background`} style={{
+             <div className={'square ' + `square-${square.id}-background`} style={{
               backgroundPosition: 'center',
-              backgroundSize: 'contain'}} onClick={() => {flip(square.id)
-              }}>
+              backgroundSize: 'contain'}}>
               </div>
               : square.visible === 'true' && disableClick === 'true' ?
               <div className={'square ' + `square-${square.id}-background`} style={{

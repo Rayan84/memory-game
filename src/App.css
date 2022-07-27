@@ -118,6 +118,10 @@
   border: white solid 1px;
 }
 
+.margin-auto {
+  margin: auto;
+  text-align: center;
+}
 
 .levels {
   color: red;
