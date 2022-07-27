@@ -26,6 +26,10 @@
   background-image: url(./components/resources/images/cover.jpg);
 }
 
+.solved {
+  opacity: 0.5;
+}
+
 .square-a-background,
 .square-a1-background {
   background-image: url(./components//resources/images/a.jpeg);

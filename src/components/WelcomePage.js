@@ -7,7 +7,7 @@ const WelcomePage = () => {
   useEffect(() => {
     if(counter < 100){
       //console.log('starting...')
-    };
+    }
     let timeOut = 0;
     const interval = setInterval(() => {
     

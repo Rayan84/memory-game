@@ -14,10 +14,7 @@ const Easy = () => {
     console.log(`first is: ${first}`);
     const changedSquareIndex = squares.findIndex((element) => element.id === number);
       squares[changedSquareIndex].visible = 'true';
-      console.log('==');
       console.log(`index is: ${changedSquareIndex}`);
-      console.log(pending);
-    
     
     if (pending == true) {
       console.log('pending is true');
@@ -26,18 +23,28 @@ const Easy = () => {
       
       if (first === `${number}1` || `${first}1` === number){
         console.log('============= Match ===============')
+        setTimeout(() => {
         squares[squares.findIndex((element) => element.id === first)].solved = 'true';
         squares[squares.findIndex((element) => element.id === number)].solved = 'true';
+        setSquares(squares => [...squares]);
+        console.log(squares);
+        }, 1500)
+      }else {
+        setTimeout(() => {
+          console.log('Timeout running...');
+          squares[squares.findIndex((element) => element.id === first)].visible = 'false';
+          squares[squares.findIndex((element) => element.id === number)].visible = 'false';
+          setSquares(squares => [...squares]);
+          console.log(squares);
+        }, 2000);
       }
-      
-      pending = false;
-    
     }
 
     if (pending === false){
       console.log('pending is false');
       first = number;
-      console.log(`first is: ${first}`);
+      console.log('==');
+      console.log(`first set to: ${first}`);
       pending = true;
       console.log(`pending set to ${pending}`);
     }else {
@@ -73,7 +80,7 @@ const Easy = () => {
           <div key={square.id}>
             {console.log('==================Rendering=======================')}
 
-            {square.solved === 'true' ? <div className={'square' + `square-${square.id}-background`} style={{
+            {square.solved === 'true' ? <div className={'square solved' + `square-${square.id}-background`} style={{
                 backgroundPosition: 'center',
                 backgroundSize: 'contain'}}></div>
              : square.visible === 'true' && square.solved === 'false'?
