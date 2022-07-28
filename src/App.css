@@ -15,6 +15,11 @@
   grid-template-columns: repeat(3, 200px);
 }
 
+.grid-hard {
+  display: grid;
+  grid-template-columns: repeat(6, 200px);
+}
+
 .square {
   margin: 15px;
   border: #28488a solid 1px;
@@ -124,7 +129,7 @@
 }
 
 .levels {
-  color: red;
+  color: greenyellow;
   text-decoration: none;
 }
 

@@ -21,10 +21,6 @@ const Easy = () => {
       console.log(`index is: ${changedSquareIndex}`);
     
     if (pending == true) {
-      // console.log('pending is true');
-      // console.log(`first is ${first}`);
-      // console.log(`second is ${number}`);
-      
       if (first === `${number}1` || `${first}1` === number){
         console.log('============= Match ===============')
         unSolvedSquares = unSolvedSquares - 2;
@@ -81,7 +77,6 @@ const Easy = () => {
       }
       images.splice(random, 1);
     }
-   console.log('useEffect...');
    setSquares(squares => tempSquares);
   }, []);
 

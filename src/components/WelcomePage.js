@@ -5,6 +5,8 @@ import Nav from "./Nav";
 
 const WelcomePage = () => {
   const [counter, setCounter] = useState(0);
+  // const currentPath = window.location.pathname;
+
   useEffect(() => {
     if(counter < 100){
       //console.log('starting...')
@@ -29,15 +31,9 @@ const WelcomePage = () => {
   return(
     <div>
     {
-      counter < 100 ? <h1>{`${counter} %`}</h1> : <div>
-
-      
-      <h1>Memory Game</h1>
-      <p>Choose a level</p>
-      <Nav />
-
-    </div>
-    }
+      counter < 100 ? <div> <h1>Memory Game</h1>   
+      <h3>{`${counter} %`}</h3> </div> : <Nav />
+ }
       
     </div>
 
