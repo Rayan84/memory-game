@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import React from "react";
 import { useState } from "react";
-import Nav from "./Nav";
+import logo from '../logo.svg';
+
 
 const WelcomePage = () => {
   const [counter, setCounter] = useState(0);
@@ -30,9 +31,11 @@ const WelcomePage = () => {
 
   return(
     <div>
+      <img src={logo} className="App-logo" alt="logo" />
+
     {
-      counter < 100 ? <div> <h1>Memory Game</h1>   
-      <h3>{`${counter} %`}</h3> </div> : <Nav />
+      counter < 100 ? <div> <h1>Game</h1>   
+      <h3>{`${counter} %`}</h3> </div> : null
  }
       
     </div>
