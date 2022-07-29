@@ -10,6 +10,14 @@
   list-style: none;
 }
 
+.color-white {
+  color:aliceblue;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 200px);
@@ -130,7 +138,6 @@
 
 .levels {
   color: greenyellow;
-  text-decoration: none;
 }
 
 .levels:hover {

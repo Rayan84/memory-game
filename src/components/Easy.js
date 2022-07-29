@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Finished from "./Finished";
+import { Link } from 'react-router-dom';
 
 let pending = false;
 let first = null;
@@ -82,14 +83,13 @@ const Easy = () => {
 
   return(
     <div>
-   
+      <Link to='/' className="color-white text-decoration-none">← Back</Link>
       <div className="grid">
         {finished.status == true ? <Finished />
 
         :squares.map((square) => (
           <div key={square.id}>
             {console.log('==================Rendering=======================')}
-
             {
               square.solved === 'true' ? <div className={'square solved ' + `square-${square.id}-background`} style={{
               backgroundPosition: 'center',

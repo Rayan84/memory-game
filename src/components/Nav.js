@@ -25,13 +25,13 @@ const Nav = () => {
       <div>
         <ul>
           <li className='list-style-none levels-li'>
-            <NavLink to='/easy' className='levels'>Easy</NavLink>
+            <NavLink to='/easy' className='text-decoration-none levels'>Easy</NavLink>
           </li>
           <li className='list-style-none levels-li'>
-            <Link to='/medium' className='levels'>Medium</Link>
+            <Link to='/medium' className='text-decoration-none levels'>Medium</Link>
           </li>
           <li className='list-style-none levels-li'>
-            <Link to='/hard' className='levels'>Hard</Link>
+            <Link to='/hard' className='text-decoration-none levels'>Hard</Link>
           </li>
         </ul>
       </div> 

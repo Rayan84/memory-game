@@ -3,7 +3,6 @@ import React from "react";
 import { useState } from "react";
 import logo from '../logo.svg';
 
-
 const WelcomePage = () => {
   const [counter, setCounter] = useState(0);
   // const currentPath = window.location.pathname;
@@ -20,11 +19,9 @@ const WelcomePage = () => {
         setCounter(counter => counter + 1)
         timeOut = timeOut + 1;
         // console.log(timeOut);
-
       }else {
         clearInterval(interval);
       }
-      
     } ,35);
     return () => clearInterval(interval);
   }, []);
@@ -32,14 +29,11 @@ const WelcomePage = () => {
   return(
     <div>
       <img src={logo} className="App-logo" alt="logo" />
-
     {
       counter < 100 ? <div> <h1>Game</h1>   
       <h3>{`${counter} %`}</h3> </div> : null
- }
-      
+ } 
     </div>
-
   );
 }
 
