@@ -68,8 +68,9 @@ const Easy = () => {
     setSquares(squares => [...squares]);
     console.log(squares);
   };
-  
-   useEffect(() => {
+   
+
+   const generateTable = () => {
     for (let i = 0; i < 12; i++){
       let random = Math.floor(Math.random() * images.length);
       
@@ -79,13 +80,22 @@ const Easy = () => {
       images.splice(random, 1);
     }
    setSquares(squares => tempSquares);
+
+   }
+
+   useEffect(() => {
+    generateTable();
   }, []);
 
   return(
     <div>
       <Link to='/' className="color-white text-decoration-none">← Back</Link>
       <div className="grid">
-        {finished.status == true ? <Finished />
+        {finished.status == true ?
+         <div>
+          <Finished />
+          <button onClick={() => {generateTable()}}>Play Again</button>
+        </div>
 
         :squares.map((square) => (
           <div key={square.id}>
