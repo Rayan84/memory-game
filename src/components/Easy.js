@@ -107,7 +107,7 @@ const Easy = () => {
           <div key={square.id}>
             {console.log('==================Rendering=======================')}
             {
-              square.solved === 'true' ? <div className={'square solved ' + `square-${square.id}-background`} style={{
+              square.solved === 'true' ? <div className={'square-no-hover solved ' + `square-${square.id}-background`} style={{
               backgroundPosition: 'center',
               backgroundSize: 'contain'}}>
               </div>
