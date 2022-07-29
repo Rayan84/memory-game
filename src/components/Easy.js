@@ -72,6 +72,7 @@ const Easy = () => {
 
    const generateTable = () => {
     for (let i = 0; i < 12; i++){
+      console.log('generating table...');
       let random = Math.floor(Math.random() * images.length);
       
       if(images[random] !== undefined){
