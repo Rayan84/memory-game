@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 let pending = false;
 let first = null;
+let clicksCounter = 0;
+
 let unSolvedSquares = 12;
 const Easy = () => {
   const [squares, setSquares] = useState([{visible: 'false', id: 100, solved: false}]);
@@ -12,8 +14,9 @@ const Easy = () => {
   let tempSquares = [];
   const images = ['a', 'a1', 'b', 'b1', 'c', 'c1', 'd', 'd1', 'e', 'e1', 'f', 'f1'];
 
-
   const flip = (number) => {
+    clicksCounter = clicksCounter + 1;
+    console.log(`clicks counter: ${clicksCounter}`);
     console.log(`${number} clicked...`);
     console.log(`pending is: ${pending}`);
     console.log(`first is: ${first}`);
@@ -71,6 +74,7 @@ const Easy = () => {
    
 
    const generateTable = () => {
+    clicksCounter = 0;
     for (let i = 0; i < 12; i++){
       console.log('generating table...');
       let random = Math.floor(Math.random() * images.length);
@@ -91,6 +95,7 @@ const Easy = () => {
   return(
     <div>
       <Link to='/' className="color-white text-decoration-none">← Back</Link>
+      <p>Clicks: {clicksCounter}</p>
       <div className="grid">
         {finished.status == true ?
          <div>
