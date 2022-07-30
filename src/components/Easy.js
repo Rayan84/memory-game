@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 let pending = false;
 let first = null;
 let clicksCounter = 0;
-
-let unSolvedSquares = 12;
+let unSolvedSquares;
 const Easy = () => {
   const [squares, setSquares] = useState([{visible: 'false', id: 100, solved: false}]);
   const [disableClick, setDisableClick] = useState('false');
@@ -71,11 +70,13 @@ const Easy = () => {
     setSquares(squares => [...squares]);
     console.log(squares);
   };
-   
 
    const generateTable = () => {
     clicksCounter = 0;
-    for (let i = 0; i < 12; i++){
+    unSolvedSquares = 12;
+    finished.status = false;
+    setFinished(finished => finished );
+    for (let i = 0; i < 12; i++) {
       console.log('generating table...');
       let random = Math.floor(Math.random() * images.length);
       
