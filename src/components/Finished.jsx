@@ -2,14 +2,13 @@ import React from "react";
 
 // Import WelcomePage from "./WelcomePage";
 
-function Finished () {
+function Finished (val) {
 
     return (
         <div>
             <h1 className="margin-auto">
-                Finished
+                {val.value}
             </h1>
-
         </div>);
 
 }

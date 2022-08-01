@@ -1,7 +1,6 @@
-import {useEffect} from "react";
-import React from "react";
-import {useState} from "react";
-import logo from "../logo.svg";
+
+import React, {useEffect, useState} from "react";
+import logo from "../logo.jpg";
 
 function WelcomePage () {
 

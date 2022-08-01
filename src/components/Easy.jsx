@@ -181,7 +181,7 @@ function Easy () {
             <div className="grid">
                 {finished.status === true
                     ? <div>
-                        <Finished />
+                        <Finished value={'Well done!'}/>
 
                         <button
                             onClick={() => {
