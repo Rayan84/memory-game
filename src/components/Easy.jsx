@@ -8,27 +8,18 @@ let clicksCounter = 0,
     unSolvedSquares;
 function Easy () {
 
-    const [
-            squares,
-            setSquares
-        ] = useState([
+    const [squares, setSquares] = useState([
 
             {
                 "id": 100,
                 "solved": false,
                 "visible": "false"
             }
-        ]),
-        [
-            disableClick,
-            setDisableClick
-        ] = useState("false"),
-        [
-            finished,
-            setFinished
-        ] = useState({"status": false}),
-        tempSquares = [],
-        images = [
+        ]);
+    const [disableClick, setDisableClick] = useState("false");
+    const [finished, setFinished] = useState({"status": false});
+    const tempSquares = [];
+    const images = [
             "a",
             "a1",
             "b",
@@ -41,9 +32,9 @@ function Easy () {
             "e1",
             "f",
             "f1"
-        ],
+        ];
 
-        flip = (number) => {
+        const flip = (number) => {
 
             clicksCounter += 1;
             console.log(`clicks counter: ${clicksCounter}`);
@@ -122,18 +113,19 @@ function Easy () {
             setSquares((squares) => [...squares]);
             console.log(squares);
 
-        },
+        };
 
-        generateTable = () => {
+        const generateTable = () => {
+            console.log('generating table');
+            console.log(images.length);
 
             clicksCounter = 0;
             unSolvedSquares = 12;
             finished.status = false;
             setFinished((finished) => finished);
-            const totalSquares = 12;
-            for (let i = 0; i < totalSquares; i++) {
+            for (let i = 0; i < 12; i++) {
 
-                console.log("generating table...");
+                console.log(images.length);
                 const random = Math.floor(Math.random() * images.length);
 
                 if (images[random] !== undefined) {
@@ -141,8 +133,10 @@ function Easy () {
                     tempSquares.push({"id": images[random],
                         "solved": "false",
                         "visible": "false"});
+                        console.log(`id: ${images[random]}`)
 
                 }
+                
                 images.splice(
                     random,
                     1
