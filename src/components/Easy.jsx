@@ -6,7 +6,7 @@ let clicksCounter = 0,
     first = null,
     pending = false,
     unSolvedSquares;
-function Easy () {
+function Easy (props) {
 
     const [squares, setSquares] = useState([
 
@@ -19,20 +19,7 @@ function Easy () {
     const [disableClick, setDisableClick] = useState("false");
     const [finished, setFinished] = useState({"status": false});
     const tempSquares = [];
-    const images = [
-            "a",
-            "a1",
-            "b",
-            "b1",
-            "c",
-            "c1",
-            "d",
-            "d1",
-            "e",
-            "e1",
-            "f",
-            "f1"
-        ];
+
 
         const flip = (number) => {
 
@@ -117,27 +104,27 @@ function Easy () {
 
         const generateTable = () => {
             console.log('generating table');
-            console.log(images.length);
+            console.log(props.chars.length);
 
             clicksCounter = 0;
-            unSolvedSquares = 12;
+            unSolvedSquares = props.len;
             finished.status = false;
             setFinished((finished) => finished);
-            for (let i = 0; i < 12; i++) {
+            for (let i = 0; i < props.len; i++) {
 
-                console.log(images.length);
-                const random = Math.floor(Math.random() * images.length);
+                console.log(props.chars.length);
+                const random = Math.floor(Math.random() * props.chars.length);
 
-                if (images[random] !== undefined) {
+                if (props.chars[random] !== undefined) {
 
-                    tempSquares.push({"id": images[random],
+                    tempSquares.push({"id": props.chars[random],
                         "solved": "false",
                         "visible": "false"});
-                        console.log(`id: ${images[random]}`)
+                        console.log(`id: ${props.chars[random]}`)
 
                 }
                 
-                images.splice(
+                props.chars.splice(
                     random,
                     1
                 );
@@ -172,7 +159,7 @@ function Easy () {
                 {clicksCounter}
             </p>
 
-            <div className="grid">
+            <div className={props.len == 36 ? "grid-hard" : props.len == 12 ? "grid" : "grid-medium"}>
                 {finished.status === true
                     ? <div>
                         <Finished value={'Well done!'}/>
