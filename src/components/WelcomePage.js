@@ -49,7 +49,7 @@ function WelcomePage () {
                         {" "}
 
                         <h1>
-                            Game
+                            Memory Game
                         </h1>
 
                         <h3>

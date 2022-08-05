@@ -21,7 +21,7 @@ function RouterComponent () {
                 />
 
                 <Route
-                    element={<PlayTable len={36} />}
+                    element={<PlayTable len={30} />}
                     path="/hard"
                 />
 

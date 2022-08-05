@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import Finished from "./Finished";
 import {Link} from "react-router-dom";
 
 let clicksCounter = 0,
@@ -49,7 +48,7 @@ function PlayTable (props) {
                                 finished.status = true;
                                 setFinished((finished) => finished);
                                 console.log(`Finished: ${finished.status}`);
-
+                                document.querySelector('.score-window').style.display = 'block';
                             }
                             squares[squares.findIndex((element) => element.id === first)].solved = "true";
                             squares[squares.findIndex((element) => element.id === number)].solved = "true";
@@ -104,6 +103,7 @@ function PlayTable (props) {
         };
         const generateTable = () => {
             console.log('generating table');
+            document.querySelector('.score-window').style.display = 'none';
             // console.log(`props chars: ${props.chars}`);
             // console.log(`chars: ${chars}`);
             clicksCounter = 0;
@@ -114,11 +114,11 @@ function PlayTable (props) {
             if(props.len == 12){
                 console.log(`props len : ${props.len}`);
                 arr = ["a", "a1", "b", "b1", "c", "c1", "d", "d1", "e", "e1", "f", "f1"];
-            }else if (props.len == 36){
-                arr = ["a", "a1", "b", "b1", "c", "c1", "d", "d1", "e", "e1", "f",  "f1", "g", "g1", "h", "h1", "i", "i1", "j", "j1", "k", "k1",
-                    "l", "l1", "m", "m1", "n", "n1", "o", "o1", "p", "p1", "q", "q1", "r", "r1"]
+            }else if (props.len == 30){
+                arr = ["a", "a1", "b", "b1", "c", "c1", "d", "d1", "e", "e1", "f",  "f1", "g", "g1", "h", "h1", "j", "j1", "k", "k1",
+                    "l", "l1", "m", "m1", "n", "n1", "o", "o1", "p", "p1"]
             }else {
-                arr = ["a", "a1", "b", "b1", "c", "c1", "d", "d1", "e", "e1", "f",  "f1", "g", "g1", "h", "h1", "i", "i1", "j", "j1"]
+                arr = ["a", "a1", "b", "b1", "c", "c1", "d", "d1", "e", "e1", "f",  "f1", "g", "g1", "h", "h1", "j", "j1", "k", "k1"]
             }
             
             for (let i = 0; i < props.len; i++) {
@@ -155,10 +155,7 @@ function PlayTable (props) {
     return (
         <div>
             <Link
-                className="color-white text-decoration-none"
-                to="/"
-            >
-                ← Back
+                className="color-white text-decoration-none" to="/">← Back
             </Link>
 
             <p>
@@ -167,25 +164,19 @@ function PlayTable (props) {
 
                 {clicksCounter}
             </p>
+            <div className="position-absolute text-align-center margin-auto score-window">
+                <h2>You win!</h2>
+                <h4>Score: {clicksCounter}</h4>
+                <div>
+                  <button onClick={() => { generateTable() }} type="button">Play Again</button>
+                </div>
+                <div>
+                  <Link className="color-white text-decoration-none" to="/">Main menu</Link>
+                </div>
+            </div>
 
-            <div className={props.len == 36 ? "grid-hard" : props.len == 12 ? "grid" : "grid-medium"}>
-                {finished.status === true
-                    ? <div>
-                        <Finished value={'Well done!'}/>
-
-                        <button
-                            onClick={() => {
-
-                                generateTable();
-
-                            }}
-                            type="button"
-                        >
-                            Play Again
-                        </button>
-                    </div>
-
-                    : squares.map((square) => (<div key={square.id}>
+            <div className={props.len == 30 ? "grid-hard" : props.len == 12 ? "grid" : "grid-medium"}>
+                {squares.map((square) => (<div key={square.id}>
                         {console.log("==================Rendering=======================")}
 
                         {
@@ -204,7 +195,8 @@ function PlayTable (props) {
                                     : square.visible === "true" && disableClick === "true"
                                         ? <div
                                             className={"square " + `square-${square.id}-background`}
-                                                style={{"backgroundPosition": "center", backgroundSize: "contain"}}
+                                                style={{"backgroundPosition": "center",
+                                                backgroundSize: "contain"}}
                                         />
                                         : square.visible === "false" && disableClick === "true"
                                             ? <div className="square square-covered " />
