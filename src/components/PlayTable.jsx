@@ -6,8 +6,9 @@ let clicksCounter = 0,
     first = null,
     pending = false,
     unSolvedSquares;
-function Easy (props) {
+function PlayTable (props) {
 
+    console.log('Easy starting...');
     const [squares, setSquares] = useState([
 
             {
@@ -101,30 +102,40 @@ function Easy (props) {
             console.log(squares);
 
         };
-
         const generateTable = () => {
             console.log('generating table');
-            console.log(props.chars.length);
-
+            // console.log(`props chars: ${props.chars}`);
+            // console.log(`chars: ${chars}`);
             clicksCounter = 0;
             unSolvedSquares = props.len;
             finished.status = false;
             setFinished((finished) => finished);
+            let arr = [];
+            if(props.len == 12){
+                console.log(`props len : ${props.len}`);
+                arr = ["a", "a1", "b", "b1", "c", "c1", "d", "d1", "e", "e1", "f", "f1"];
+            }else if (props.len == 36){
+                arr = ["a", "a1", "b", "b1", "c", "c1", "d", "d1", "e", "e1", "f",  "f1", "g", "g1", "h", "h1", "i", "i1", "j", "j1", "k", "k1",
+                    "l", "l1", "m", "m1", "n", "n1", "o", "o1", "p", "p1", "q", "q1", "r", "r1"]
+            }else {
+                arr = ["a", "a1", "b", "b1", "c", "c1", "d", "d1", "e", "e1", "f",  "f1", "g", "g1", "h", "h1", "i", "i1", "j", "j1"]
+            }
+            
             for (let i = 0; i < props.len; i++) {
 
-                console.log(props.chars.length);
-                const random = Math.floor(Math.random() * props.chars.length);
+                console.log(arr.length);
+                const random = Math.floor(Math.random() * arr.length);
 
-                if (props.chars[random] !== undefined) {
+                if (arr[random] !== undefined) {
 
-                    tempSquares.push({"id": props.chars[random],
+                    tempSquares.push({"id": arr[random],
                         "solved": "false",
                         "visible": "false"});
-                        console.log(`id: ${props.chars[random]}`)
+                        console.log(`id: ${arr[random]}`)
 
                 }
                 
-                props.chars.splice(
+                arr.splice(
                     random,
                     1
                 );
@@ -135,12 +146,10 @@ function Easy (props) {
         };
 
     useEffect(
-        () => {
-
+        () => {            
             generateTable();
 
-        },
-        []
+        }, []
     );
 
     return (
@@ -216,4 +225,4 @@ function Easy (props) {
 
 }
 
-export default Easy;
+export default PlayTable;
