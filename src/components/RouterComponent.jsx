@@ -1,9 +1,7 @@
 import {
     BrowserRouter as Router,
     Routes,
-    // Link,
     Route
-    // NavLink,
 } from "react-router-dom";
 import React from "react";
 import WelcomePage from "./WelcomePage";

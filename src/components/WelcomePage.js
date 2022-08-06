@@ -1,6 +1,5 @@
 
 import React, {useEffect, useState} from "react";
-import logo from "../logo.jpg";
 
 function WelcomePage () {
 
@@ -37,21 +36,12 @@ function WelcomePage () {
 
     return (
         <div>
-            <img
-                alt="logo"
-                className="App-logo"
-                src={logo}
-            />
+            <h1>Memory Game</h1>
 
             {
                 counter < 100
                     ? <div>
                         {" "}
-
-                        <h1>
-                            Memory Game
-                        </h1>
-
                         <h3>
                             {`Loading ${counter} %`}
                         </h3>

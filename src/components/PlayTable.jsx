@@ -103,9 +103,7 @@ function PlayTable (props) {
         };
         const generateTable = () => {
             console.log('generating table');
-            document.querySelector('.score-window').style.display = 'none';
-            // console.log(`props chars: ${props.chars}`);
-            // console.log(`chars: ${chars}`);
+            document.querySelector('.score-window').style.display = 'block';
             clicksCounter = 0;
             unSolvedSquares = props.len;
             finished.status = false;
@@ -154,24 +152,25 @@ function PlayTable (props) {
 
     return (
         <div>
-            <Link
-                className="color-white text-decoration-none" to="/">← Back
-            </Link>
+            <ul className="display-flex justify-content-space-between">
+                <li className="list-style-none">
+                    <Link
+                        className="color-white text-decoration-none" to="/">←
+                    </Link>
+                </li>
+                <li className="list-style-none">
+                    Clicks:{" "}{clicksCounter}
+                </li>
+            </ul>
 
-            <p>
-                Clicks:
-                {" "}
-
-                {clicksCounter}
-            </p>
             <div className="position-absolute text-align-center margin-auto score-window">
-                <h2>You win!</h2>
-                <h4>Score: {clicksCounter}</h4>
+                <h1>You win!</h1>
+                <h2>Score: {100 - clicksCounter}</h2>
                 <div>
-                  <button onClick={() => { generateTable() }} type="button">Play Again</button>
+                  <button className="cursor-pointer play-again-button" onClick={() => { generateTable() }} type="button">Play Again</button>
                 </div>
                 <div>
-                  <Link className="color-white text-decoration-none" to="/">Main menu</Link>
+                  <Link className="text-decoration-none" to="/"><button className="cursor-pointer play-again-button">Main menu</button></Link>
                 </div>
             </div>
 
@@ -194,7 +193,7 @@ function PlayTable (props) {
                                     />
                                     : square.visible === "true" && disableClick === "true"
                                         ? <div
-                                            className={"square " + `square-${square.id}-background`}
+                                            className={"square-no-hover " + `square-${square.id}-background`}
                                                 style={{"backgroundPosition": "center",
                                                 backgroundSize: "contain"}}
                                         />

@@ -10,6 +10,10 @@
   list-style: none;
 }
 
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
 .color-white {
   color:aliceblue;
 }
@@ -53,16 +57,41 @@
   position: absolute;
 }
 
+.display-flex {
+  display: flex;
+}
+
 .score-window {
+  padding-top: 5rem;
   border: #61dafb solid 1px;
-  background-color: rgba(120, 155, 110, 0.7);
+  background-color: rgba(214, 228, 233, 0.9);
+  color: #282c34;
   border-radius: 25px;
   width: 85vw;
   height: 85vh;
-  display: none;
   top:50%;
   left:50%;
   transform:translate(-50%, -50%);
+  z-index: 2;
+}
+
+.play-again-button,
+.main-menu {
+  background-color: black;
+  color: #61dafb;
+  border: none;
+  border-radius: 6px;
+  line-height: 2rem;
+  width: 15rem;
+  font-size: large;
+  margin-top: 2rem;
+  opacity: 1;
+}
+
+.play-again-button:hover,
+.main-menu:hover {
+  color: black;
+  background-color: #61dafb;
 }
 
 .square-a-background,
