@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import PropTypes from 'prop-types';
 
 let clicksCounter = 0,
     first = null,
@@ -103,7 +104,7 @@ function PlayTable (props) {
         };
         const generateTable = () => {
             console.log('generating table');
-            document.querySelector('.score-window').style.display = 'block';
+            document.querySelector('.score-window').style.display = 'none';
             clicksCounter = 0;
             unSolvedSquares = props.len;
             finished.status = false;
@@ -215,5 +216,9 @@ function PlayTable (props) {
     );
 
 }
+
+PlayTable.propTypes = {
+    len: PropTypes.string
+};
 
 export default PlayTable;
