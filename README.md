@@ -9,6 +9,12 @@ The game incorporates three deficulty levels, easy, medium and hard.
 ## screenshot
 
 |![Screenshot](./screenshot.png)|
+
+
+## Live link
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ca9178da-2d5b-4623-9088-122a0e778f66/deploy-status)](https://app.netlify.com/sites/elegant-donut-e8731e/deploys)
+
+
 ## Available Scripts
 
 In the project directory, you can run:

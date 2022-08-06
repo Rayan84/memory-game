@@ -218,7 +218,7 @@ function PlayTable (props) {
 }
 
 PlayTable.propTypes = {
-    len: PropTypes.string
+    len: PropTypes.number
 };
 
 export default PlayTable;
