@@ -24,8 +24,9 @@ function WelcomePage () {
                     } else {
                         
                         clearInterval(interval);
-                        initialLoadingProgress = false
-
+                        document.querySelector('.loading-container').style.visibility = 'hidden';
+                        initialLoadingProgress = false;
+                        
                     }
 
                 },
@@ -39,17 +40,9 @@ function WelcomePage () {
     return (
         <div>
             <h1>Memory Game</h1>
-
-            {
-                counter < 100
-                    ? <div>
-                        {" "}
-                        <h3>
-                            {initialLoadingProgress ? `Loading ${counter} %` : null}
-                        </h3>
-                      </div>
-                    : null
-            }
+            <div className="loading-container">
+                {initialLoadingProgress ? <h3>{`Loading ${counter} %`} </h3> : null }
+            </div>
         </div>
     );
 

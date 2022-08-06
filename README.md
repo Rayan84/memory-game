@@ -6,7 +6,7 @@ The game incorporates three deficulty levels, easy, medium and hard.
  [Create React App](https://github.com/facebook/create-react-app).
 
 
-## screenshot
+## Screenshot
 
 |![Screenshot](./screenshot.png)|
 
