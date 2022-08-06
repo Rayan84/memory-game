@@ -1,6 +1,7 @@
 
 import React, {useEffect, useState} from "react";
 
+let initialLoadingProgress = true;
 function WelcomePage () {
 
     const [
@@ -21,8 +22,9 @@ function WelcomePage () {
                         timeOut += 1;
 
                     } else {
-
+                        
                         clearInterval(interval);
+                        initialLoadingProgress = false
 
                     }
 
@@ -43,7 +45,7 @@ function WelcomePage () {
                     ? <div>
                         {" "}
                         <h3>
-                            {`Loading ${counter} %`}
+                            {initialLoadingProgress ? `Loading ${counter} %` : null}
                         </h3>
                       </div>
                     : null
