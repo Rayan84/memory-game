@@ -1,4 +1,4 @@
-.App {
+.app {
   text-align: center;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .color-white {
-  color:aliceblue;
+  color: aliceblue;
 }
 
 .text-decoration-none {
@@ -46,7 +46,7 @@
 }
 
 .square-covered {
-  background-image: url(./components/resources/images/cover.jpg);
+  background-image: url("./components/resources/images/cover.jpg");
 }
 
 .solved {
@@ -64,14 +64,14 @@
 .score-window {
   padding-top: 5rem;
   border: #61dafb solid 1px;
-  background-color: rgba(214, 228, 233, 0.9);
+  background-color: rgb(214 228 233 / 90%);
   color: #282c34;
   border-radius: 25px;
   width: 85vw;
   height: 85vh;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
 }
 
@@ -96,76 +96,77 @@
 
 .square-a-background,
 .square-a1-background {
-  background-image: url(./components//resources/images/a.png);
+  background-image: url("./components//resources/images/a.png");
 }
 
 .square-b-background,
 .square-b1-background {
-  background-image: url(./components//resources/images/b.png);
+  background-image: url("./components//resources/images/b.png");
 }
 
 .square-c-background,
 .square-c1-background {
-  background-image: url(./components//resources/images/c.jpg);
+  background-image: url("./components//resources/images/c.jpg");
 }
 
 .square-d-background,
 .square-d1-background {
-  background-image: url(./components//resources/images/d.png);
+  background-image: url("./components//resources/images/d.png");
 }
 
 .square-e-background,
 .square-e1-background {
-  background-image: url(./components//resources/images/e.png);
+  background-image: url("./components//resources/images/e.png");
 }
 
 .square-f-background,
 .square-f1-background {
-  background-image: url(./components//resources/images/f.png);
+  background-image: url("./components//resources/images/f.png");
 }
 
 .square-g-background,
 .square-g1-background {
-  background-image: url(./components//resources/images/g.jpg);
+  background-image: url("./components//resources/images/g.jpg");
 }
+
 .square-h-background,
 .square-h1-background {
-  background-image: url(./components//resources/images/h.jpeg);
+  background-image: url("./components//resources/images/h.jpeg");
 }
 
 .square-j-background,
 .square-j1-background {
-  background-image: url(./components//resources/images/j.jpeg);
+  background-image: url("./components//resources/images/j.jpeg");
 }
 
 .square-k-background,
 .square-k1-background {
-  background-image: url(./components//resources/images/k.png);
+  background-image: url("./components//resources/images/k.png");
 }
 
 .square-l-background,
 .square-l1-background {
-  background-image: url(./components//resources/images/l.png);
+  background-image: url("./components//resources/images/l.png");
 }
 
 .square-m-background,
 .square-m1-background {
-  background-image: url(./components//resources/images/m.jpg);
+  background-image: url("./components//resources/images/m.jpg");
 }
 
 .square-n-background,
 .square-n1-background {
-  background-image: url(./components//resources/images/n.jpg);
+  background-image: url("./components//resources/images/n.jpg");
 }
 
 .square-o-background,
 .square-o1-background {
-  background-image: url(./components//resources/images/o.png);
+  background-image: url("./components//resources/images/o.png");
 }
 
 .square-p-background,
 .square-p1-background {
-  background-image: url(./components//resources/images/p.png);
+  background-image: url("./components//resources/images/p.png");
 }
 
 .square:hover {
@@ -190,21 +191,10 @@
 }
 
 .cursor-pointer {
- cursor: pointer;
+  cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+.app-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -213,17 +203,4 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
