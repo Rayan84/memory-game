@@ -8,7 +8,6 @@ let clicksCounter = 0,
     unSolvedSquares;
 function PlayTable (props) {
 
-    console.log('Easy starting...');
     const [squares, setSquares] = useState([
 
             {
@@ -25,20 +24,13 @@ function PlayTable (props) {
         const flip = (number) => {
 
             clicksCounter += 1;
-            console.log(`clicks counter: ${clicksCounter}`);
-            console.log(`${number} clicked...`);
-            console.log(`pending is: ${pending}`);
-            console.log(`first is: ${first}`);
             const changedSquareIndex = squares.findIndex((element) => element.id === number);
             squares[changedSquareIndex].visible = "true";
-            console.log(`index is: ${changedSquareIndex}`);
             if (pending === true) {
 
                 if (first === `${number}1` || `${first}1` === number) {
 
-                    console.log("============= Match ===============");
                     unSolvedSquares -= 2;
-                    console.log(`unsolved squares: ${unSolvedSquares}`);
                     const squareFlipTimeOut = 1500;
                     setTimeout(
                         () => {
@@ -48,14 +40,12 @@ function PlayTable (props) {
 
                                 finished.status = true;
                                 setFinished((finished) => finished);
-                                console.log(`Finished: ${finished.status}`);
                                 document.querySelector('.score-window').style.display = 'block';
                             }
                             squares[squares.findIndex((element) => element.id === first)].solved = "true";
                             squares[squares.findIndex((element) => element.id === number)].solved = "true";
                             setDisableClick({status: false});
                             setSquares((squares) => [...squares]);
-                            console.log(squares);
 
                         },
                         squareFlipTimeOut
@@ -66,11 +56,9 @@ function PlayTable (props) {
                     setTimeout(
                         () => {
 
-                            console.log("Timeout running...");
                             squares[squares.findIndex((el) => el.id === first)].visible = "false";
                             squares[squares.findIndex((el) => el.id === number)].visible = "false";
                             setDisableClick({"status": false});
-                            console.log(`disableClick set to: ${disableClick}`);
                             setSquares((squares) => [...squares]);
 
                         },
@@ -79,18 +67,13 @@ function PlayTable (props) {
 
                 }
                 setDisableClick({"status": true});
-                console.log(`disableClick set to: ${disableClick}`);
 
             }
 
             if (pending === false) {
 
-                console.log("pending is false");
                 first = number;
-                console.log("==");
-                console.log(`first set to: ${first}`);
                 pending = true;
-                console.log(`pending set to ${pending}`);
 
             } else {
 
@@ -99,11 +82,9 @@ function PlayTable (props) {
             }
 
             setSquares((squares) => [...squares]);
-            console.log(squares);
 
         };
         const generateTable = () => {
-            console.log('generating table');
             document.querySelector('.score-window').style.display = 'none';
             clicksCounter = 0;
             unSolvedSquares = props.len;
@@ -111,7 +92,6 @@ function PlayTable (props) {
             setFinished((finished) => finished);
             let arr = [];
             if(props.len == 12){
-                console.log(`props len : ${props.len}`);
                 arr = ["a", "a1", "b", "b1", "c", "c1", "d", "d1", "e", "e1", "f", "f1"];
             }else if (props.len == 30){
                 arr = ["a", "a1", "b", "b1", "c", "c1", "d", "d1", "e", "e1", "f",  "f1", "g", "g1", "h", "h1", "j", "j1", "k", "k1",
@@ -122,7 +102,6 @@ function PlayTable (props) {
             
             for (let i = 0; i < props.len; i++) {
 
-                console.log(arr.length);
                 const random = Math.floor(Math.random() * arr.length);
 
                 if (arr[random] !== undefined) {
@@ -130,7 +109,6 @@ function PlayTable (props) {
                     tempSquares.push({"id": arr[random],
                         "solved": "false",
                         "visible": "false"});
-                        console.log(`id: ${arr[random]}`)
 
                 }
                 
@@ -177,7 +155,6 @@ function PlayTable (props) {
 
             <div className={props.len == 30 ? "grid-hard" : props.len == 12 ? "grid" : "grid-medium"}>
                 {squares.map((square) => (<div key={square.id}>
-                        {console.log("==================Rendering=======================")}
 
                         {
                             square.solved === "true"
