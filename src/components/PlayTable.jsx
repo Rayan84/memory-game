@@ -17,7 +17,7 @@ function PlayTable (props) {
                 "visible": "false"
             }
         ]);
-    const [disableClick, setDisableClick] = useState("false");
+    const [disableClick, setDisableClick] = useState({"status": false});
     const [finished, setFinished] = useState({"status": false});
     const tempSquares = [];
 
@@ -53,7 +53,7 @@ function PlayTable (props) {
                             }
                             squares[squares.findIndex((element) => element.id === first)].solved = "true";
                             squares[squares.findIndex((element) => element.id === number)].solved = "true";
-                            setDisableClick((disableClick) => "false");
+                            setDisableClick({status: false});
                             setSquares((squares) => [...squares]);
                             console.log(squares);
 
@@ -69,7 +69,7 @@ function PlayTable (props) {
                             console.log("Timeout running...");
                             squares[squares.findIndex((el) => el.id === first)].visible = "false";
                             squares[squares.findIndex((el) => el.id === number)].visible = "false";
-                            setDisableClick((disableClick) => "false");
+                            setDisableClick({"status": false});
                             console.log(`disableClick set to: ${disableClick}`);
                             setSquares((squares) => [...squares]);
 
@@ -78,7 +78,7 @@ function PlayTable (props) {
                     );
 
                 }
-                setDisableClick((disableClick) => "true");
+                setDisableClick({"status": true});
                 console.log(`disableClick set to: ${disableClick}`);
 
             }
@@ -140,7 +140,7 @@ function PlayTable (props) {
                 );
 
             }
-            setSquares((squares) => tempSquares);
+            setSquares(() => tempSquares);
 
         };
 
@@ -186,19 +186,19 @@ function PlayTable (props) {
                                     style={{"backgroundPosition": "center",
                                         "backgroundSize": "contain"}}
                                 />
-                                : square.visible === "true" && disableClick === "false"
+                                : square.visible === "true" && disableClick.status === false
                                     ? <div
-                                            className={"square " + `square-${square.id}-background`}
+                                            className={"square-no-hover " + `square-${square.id}-background`}
                                         style={{"backgroundPosition": "center",
                                             backgroundSize: "contain"}}
                                     />
-                                    : square.visible === "true" && disableClick === "true"
+                                    : square.visible === "true" && disableClick.status === true
                                         ? <div
                                             className={"square-no-hover " + `square-${square.id}-background`}
                                                 style={{"backgroundPosition": "center",
                                                 backgroundSize: "contain"}}
                                         />
-                                        : square.visible === "false" && disableClick === "true"
+                                        : square.visible === "false" && disableClick.status === true
                                             ? <div className="square square-covered " />
                                             : <div
                                                     className="square cursor-pointer square-covered"

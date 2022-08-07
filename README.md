@@ -1,6 +1,6 @@
 # Memory Game
 
-This project was started from scratch, it is a memory game puzzle, the player needs to memorize figures positions and open the two matching ones consecutively to solve them.
+This project was started from scratch, it is a memory game puzzle, the player needs to memorize figures positions and open the matching pair consecutively to solve them.
 The game incorporates three deficulty levels, easy, medium and hard.
 
  [Create React App](https://github.com/facebook/create-react-app).
