@@ -12,7 +12,7 @@ The game incorporates three deficulty levels, easy, medium and hard.
 
 
 ## Live link
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ca9178da-2d5b-4623-9088-122a0e778f66/deploy-status)](https://app.netlify.com/sites/elegant-donut-e8731e/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ca9178da-2d5b-4623-9088-122a0e778f66/deploy-status)](https://elegant-donut-e8731e.netlify.app/)
 
 
 ## How to use
