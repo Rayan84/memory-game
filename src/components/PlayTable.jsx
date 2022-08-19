@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
+import Confetti from 'react-confetti';
 
 let clicksCounter = 0,
     first = null,
@@ -99,7 +100,7 @@ function PlayTable (props) {
             }else {
                 arr = ["a", "a1", "b", "b1", "c", "c1", "d", "d1", "e", "e1", "f",  "f1", "g", "g1", "h", "h1", "j", "j1", "k", "k1"]
             }
-            
+
             for (let i = 0; i < props.len; i++) {
 
                 const random = Math.floor(Math.random() * arr.length);
@@ -111,7 +112,7 @@ function PlayTable (props) {
                         "visible": "false"});
 
                 }
-                
+
                 arr.splice(
                     random,
                     1
@@ -123,7 +124,7 @@ function PlayTable (props) {
         };
 
     useEffect(
-        () => {            
+        () => {
             generateTable();
 
         }, []
@@ -144,6 +145,7 @@ function PlayTable (props) {
 
             <div className="position-absolute text-align-center margin-auto score-window">
                 <h1>You win!</h1>
+                <Confetti />
                 <h2>Score: {100 - clicksCounter}</h2>
                 <div>
                   <button className="cursor-pointer play-again-button" onClick={() => { generateTable() }} type="button">Play Again</button>
