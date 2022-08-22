@@ -22,6 +22,7 @@ function PlayTable (props) {
     const [disableClick, setDisableClick] = useState({"status": false});
     const [finished, setFinished] = useState({"status": false});
     const tempSquares = [];
+    const [playSound] = useSound(FlipBack);
 
 
         const flip = (number) => {
@@ -63,7 +64,7 @@ function PlayTable (props) {
                             squares[squares.findIndex((el) => el.id === number)].visible = "false";
                             setDisableClick({"status": false});
                             setSquares((squares) => [...squares]);
-
+                            playSound();
                         },
                         1500
                     );
