@@ -25,6 +25,7 @@ function PlayTable (props) {
     const tempSquares = [];
     const [flipBack] = useSound(FlipBack);
     const [match] = useSound(Match);
+    const [confetti, setConfetti] = useState({status: false});
 
 
         const flip = (number) => {
@@ -47,6 +48,7 @@ function PlayTable (props) {
                                 finished.status = true;
                                 setFinished((finished) => finished);
                                 document.querySelector('.score-window').style.display = 'block';
+                                setConfetti({status: true});
                             }
                             squares[squares.findIndex((element) => element.id === first)].solved = "true";
                             squares[squares.findIndex((element) => element.id === number)].solved = "true";
@@ -135,9 +137,15 @@ function PlayTable (props) {
 
         }, []
     );
+    if (confetti.status === true) {
+        setTimeout(() => {
+          setConfetti({status: false});
+        }, 15000)
+   }
 
     return (
         <div>
+            {confetti.status === true ? <Confetti className="confetti" /> : null } 
             <ul className="display-flex justify-content-space-between">
                 <li className="list-style-none">
                     <Link
@@ -151,7 +159,6 @@ function PlayTable (props) {
 
             <div className="position-absolute text-align-center margin-auto score-window">
                 <h1>You win!</h1>
-                <Confetti />
                 <h2>Score: {100 - clicksCounter}</h2>
                 <div>
                   <button className="cursor-pointer play-again-button" onClick={() => { generateTable() }} type="button">Play Again</button>
