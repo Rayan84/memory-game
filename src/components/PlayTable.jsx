@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import Confetti from 'react-confetti';
+import useSound from 'use-sound';
+import FlipBack from './resources/sounds/FlipBack.mp3'
 
 let clicksCounter = 0,
     first = null,
