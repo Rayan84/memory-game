@@ -3,7 +3,8 @@ import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import Confetti from 'react-confetti';
 import useSound from 'use-sound';
-import FlipBack from './resources/sounds/FlipBack.mp3'
+import FlipBack from './resources/sounds/FlipBack.mp3';
+import Match from './resources/sounds/Match.wav';
 
 let clicksCounter = 0,
     first = null,
@@ -22,7 +23,8 @@ function PlayTable (props) {
     const [disableClick, setDisableClick] = useState({"status": false});
     const [finished, setFinished] = useState({"status": false});
     const tempSquares = [];
-    const [playSound] = useSound(FlipBack);
+    const [flipBack] = useSound(FlipBack);
+    const [match] = useSound(Match);
 
 
         const flip = (number) => {
@@ -50,6 +52,7 @@ function PlayTable (props) {
                             squares[squares.findIndex((element) => element.id === number)].solved = "true";
                             setDisableClick({status: false});
                             setSquares((squares) => [...squares]);
+                            match();
 
                         },
                         squareFlipTimeOut
@@ -64,7 +67,7 @@ function PlayTable (props) {
                             squares[squares.findIndex((el) => el.id === number)].visible = "false";
                             setDisableClick({"status": false});
                             setSquares((squares) => [...squares]);
-                            playSound();
+                            flipBack();
                         },
                         1500
                     );
