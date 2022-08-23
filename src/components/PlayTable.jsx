@@ -26,8 +26,6 @@ function PlayTable (props) {
     const tempSquares = [];
     const [flipBack] = useSound(FlipBack);
     const [match] = useSound(Match);
-    const [confetti, setConfetti] = useState({status: false});
-
 
         const flip = (number) => {
 
@@ -140,26 +138,17 @@ function PlayTable (props) {
         }, []
     );
     if (confetti.status === true) {
-<<<<<<< HEAD
+
          setTimeout(() => {
            setConfetti({status: false});
          }, 15000)
     }
-
-    return (
-        <div>
-            {confetti.status === true ? <Confetti className="confetti" /> : null }                
-
-=======
-        setTimeout(() => {
-          setConfetti({status: false});
-        }, 15000)
-   }
+              
 
     return (
         <div>
             {confetti.status === true ? <Confetti className="confetti" /> : null } 
->>>>>>> sounds
+
             <ul className="display-flex justify-content-space-between">
                 <li className="list-style-none">
                     <Link
