@@ -2,6 +2,9 @@ import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import Confetti from 'react-confetti';
+import useSound from 'use-sound';
+import FlipBack from './resources/sounds/FlipBack.mp3';
+import Match from './resources/sounds/Match.wav';
 
 let clicksCounter = 0,
     first = null,
@@ -21,6 +24,9 @@ function PlayTable (props) {
     const [finished, setFinished] = useState({"status": false});
     const [confetti, setConfetti] = useState({status: false});
     const tempSquares = [];
+    const [flipBack] = useSound(FlipBack);
+    const [match] = useSound(Match);
+    const [confetti, setConfetti] = useState({status: false});
 
 
         const flip = (number) => {
@@ -44,11 +50,13 @@ function PlayTable (props) {
                                 setFinished((finished) => finished);
                                 setConfetti({status: true});
                                 document.querySelector('.score-window').style.display = 'block';
+                                setConfetti({status: true});
                             }
                             squares[squares.findIndex((element) => element.id === first)].solved = "true";
                             squares[squares.findIndex((element) => element.id === number)].solved = "true";
                             setDisableClick({status: false});
                             setSquares((squares) => [...squares]);
+                            match();
 
                         },
                         squareFlipTimeOut
@@ -63,7 +71,7 @@ function PlayTable (props) {
                             squares[squares.findIndex((el) => el.id === number)].visible = "false";
                             setDisableClick({"status": false});
                             setSquares((squares) => [...squares]);
-
+                            flipBack();
                         },
                         1500
                     );
@@ -132,6 +140,7 @@ function PlayTable (props) {
         }, []
     );
     if (confetti.status === true) {
+<<<<<<< HEAD
          setTimeout(() => {
            setConfetti({status: false});
          }, 15000)
@@ -141,6 +150,16 @@ function PlayTable (props) {
         <div>
             {confetti.status === true ? <Confetti className="confetti" /> : null }                
 
+=======
+        setTimeout(() => {
+          setConfetti({status: false});
+        }, 15000)
+   }
+
+    return (
+        <div>
+            {confetti.status === true ? <Confetti className="confetti" /> : null } 
+>>>>>>> sounds
             <ul className="display-flex justify-content-space-between">
                 <li className="list-style-none">
                     <Link
